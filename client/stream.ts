@@ -1,15 +1,13 @@
 const debug = console.log
 const ndJsonMimeType = "application/x-ndjson"
 
-const server = "http://localhost:8080";
-
-const res = await fetch(`${server}/stream`, {
-  headers: {"Content-Type": ndJsonMimeType },
+const response = await fetch("localhost:8080/stream", {
+  headers: {"Content-Type": "application/x-ndjson" },
 })
 
-const gen = ndJsonStream(res)
+const jsonStream = ndJsonStream(response)
 
-for await (const value of gen) {
+for await (const value of jsonStream) {
   debug(`value=${JSON.stringify(value)}`)
 }
 

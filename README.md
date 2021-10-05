@@ -6,3 +6,15 @@ Open `/server` in IntelliJ and run the Spring Boot application.
 Open `/client` in Visual Code with the Deno extension installed. And run 
 `deno run -A stream.ts`
 
+Use the ndjson stream function like this
+```typescript
+const ressponse = await fetch("localhost:8080/stream", {
+  headers: {"Content-Type": "application/x-ndjson" },
+})
+
+const gen = ndJsonStream(ressponse)
+
+for await (const value of gen) {
+  debug(`value=${JSON.stringify(value)}`)
+}
+```
