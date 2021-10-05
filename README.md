@@ -12,9 +12,9 @@ const ressponse = await fetch("localhost:8080/stream", {
   headers: {"Content-Type": "application/x-ndjson" },
 })
 
-const gen = ndJsonStream(ressponse)
+const jsonStream = ndJsonStream(ressponse)
 
-for await (const value of gen) {
-  debug(`value=${JSON.stringify(value)}`)
+for await (const value of jsonStream) {
+  console.log(`value=${JSON.stringify(value)}`)
 }
 ```
