@@ -8,11 +8,11 @@ Open `/client` in Visual Code with the Deno extension installed. And run
 
 Use the ndjson stream function like this
 ```typescript
-const ressponse = await fetch("localhost:8080/stream", {
+const response = await fetch("localhost:8080/stream", {
   headers: {"Content-Type": "application/x-ndjson" },
 })
 
-const jsonStream = ndJsonStream(ressponse)
+const jsonStream = ndJsonStream(response)
 
 for await (const value of jsonStream) {
   console.log(`value=${JSON.stringify(value)}`)
