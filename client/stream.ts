@@ -1,7 +1,7 @@
 const debug = console.log
 const ndJsonMimeType = "application/x-ndjson"
 
-const response = await fetch("localhost:8080/stream", {
+const response = await fetch("http://localhost:8080/stream", {
   headers: {"Content-Type": "application/x-ndjson" },
 })
 
